@@ -16,7 +16,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableJpaRepositories(basePackages = {"com.example.restapi.repository"})
 @EnableTransactionManagement
 @EnableWebMvc
-@RestController
 public class RestapiApplication {
 
     public static void main(String[] args) {
