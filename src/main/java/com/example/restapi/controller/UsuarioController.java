@@ -47,6 +47,9 @@ public class UsuarioController {
     @PostMapping(value = "/", produces = "application/json")
     public ResponseEntity<Usuario> cadastrarUsuario(@RequestBody  Usuario usuario ){
 
+        for(int pos =0; pos < usuario.getTelefones().size(); pos ++){
+            usuario.getTelefones().get(pos).setUsuario(usuario);
+        }
         Usuario usuarioParaSalvar = usuarioRepository.save(usuario);
 
         return new ResponseEntity<Usuario>(usuarioParaSalvar, HttpStatus.OK);
@@ -56,6 +59,9 @@ public class UsuarioController {
     @PutMapping(value = "/", produces = "application/json")
     public ResponseEntity<Usuario> atualizarUsuario(@RequestBody  Usuario usuario ){
 
+        for(int pos =0; pos < usuario.getTelefones().size(); pos ++){
+            usuario.getTelefones().get(pos).setUsuario(usuario);
+        }
         Usuario usuarioParaSalvar = usuarioRepository.save(usuario);
 
         return new ResponseEntity<Usuario>(usuarioParaSalvar, HttpStatus.OK);

@@ -1,10 +1,9 @@
 package com.example.restapi.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Usuario implements Serializable {
@@ -15,6 +14,17 @@ public class Usuario implements Serializable {
     private Long Id;
     private  String Login;
     private String Nome;
+
+    public List<Telefone> getTelefones() {
+        return telefones;
+    }
+
+    public void setTelefones(List<Telefone> telefones) {
+        this.telefones = telefones;
+    }
+
+    @OneToMany(mappedBy = "usuario",orphanRemoval = true,cascade = CascadeType.ALL) //um usuario pra muitos telefones
+    private List<Telefone> telefones = new ArrayList<Telefone>();
 
     public Long getId() {
         return Id;

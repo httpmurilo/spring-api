@@ -5,3 +5,6 @@ Recursos utilizados :
 - Spring boot.
 - Repository Pattern.
 - Mysql.
+- Jpa.
+- Hibernate.
+- One to many.
